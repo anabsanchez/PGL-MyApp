@@ -27,7 +27,7 @@ export default function Welcome() {
         <TouchableOpacity
           style={[
             styles.button,
-            { backgroundColor: currentTheme.colors.secondary },
+            { backgroundColor: currentTheme.colors.secondary, opacity: 0 },
           ]}
         >
           <Text
