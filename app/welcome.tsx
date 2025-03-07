@@ -1,20 +1,41 @@
-import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { StyleSheet, Text, TouchableOpacity, View, Image } from "react-native";
 import React, { useContext } from "react";
 import { Link, Redirect } from "expo-router";
 import { ThemeContext } from "../contexts/ThemeContext";
 
 export default function Welcome() {
-  const { colors } = useContext(ThemeContext);
+  const currentTheme = useContext(ThemeContext);
   return (
-    <View style={[styles.container, { backgroundColor: colors.primary }]}>
-      <Text style={[styles.title, { color: colors.secondary }]}>
+    <View
+      style={[
+        styles.container,
+        { backgroundColor: currentTheme.colors.primary },
+      ]}
+    >
+      <Image
+        source={
+          currentTheme.theme
+            ? require("../assets/welcome/rocket_light.png")
+            : require("../assets/welcome/rocket_dark.png")
+        }
+        style={styles.image}
+      />
+      <Text style={[styles.title, { color: currentTheme.colors.secondary }]}>
         Welcome aboard!
       </Text>
       <Link href="(tabs)/hobbies" asChild>
         <TouchableOpacity
-          style={[styles.button, { backgroundColor: colors.secondary }]}
+          style={[
+            styles.button,
+            { backgroundColor: currentTheme.colors.secondary },
+          ]}
         >
-          <Text style={[styles.buttonText, { color: colors.secondary }]}>
+          <Text
+            style={[
+              styles.buttonText,
+              { color: currentTheme.colors.secondary },
+            ]}
+          >
             Go to Profile
           </Text>
         </TouchableOpacity>
@@ -55,5 +76,9 @@ const styles = StyleSheet.create({
   buttonText: {
     fontSize: 16,
     fontWeight: "bold",
+  },
+  image: {
+    position: "absolute",
+    opacity: 0.4,
   },
 });
