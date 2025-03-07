@@ -1,9 +1,12 @@
 import { StyleSheet, Text, View } from "react-native";
 import React from "react";
-import { Redirect } from "expo-router";
 
-export default function StartPage() {
-  return <Redirect href="home" />;
+export default function Repository() {
+  return (
+    <View>
+      <Text>Repository</Text>
+    </View>
+  );
 }
 
 const styles = StyleSheet.create({});
