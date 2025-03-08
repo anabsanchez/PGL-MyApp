@@ -5,8 +5,18 @@ const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
   const [theme, setTheme] = useState<"light" | "dark">("light");
 
   const themes = {
-    light: { primary: "#FF888A", secondary: "#FFFFFF" },
-    dark: { primary: "#7B4344", secondary: "#FFFFFF" },
+    light: {
+      primary: "#FF888A",
+      secondary: "#7B4344",
+      active: "#000000",
+      passive: "#FFFFFF",
+    },
+    dark: {
+      primary: "#7B4344",
+      secondary: "#FF888A",
+      active: "#FFFFFF",
+      passive: "#000000",
+    },
   };
 
   const switchTheme = () => {
