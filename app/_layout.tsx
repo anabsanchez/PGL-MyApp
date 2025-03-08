@@ -1,10 +1,12 @@
 import { StyleSheet } from "react-native";
-import React from "react";
+import React, { useContext } from "react";
 import { Stack } from "expo-router";
 import ThemeProvider from "../providers/ThemeProvider";
 import ThemeSwitch from "../components/ThemeSwitch";
+import { ThemeContext } from "../contexts/ThemeContext";
 
 export default function AppLayout() {
+  const { colors } = useContext(ThemeContext);
   return (
     <ThemeProvider>
       <Stack>
@@ -14,6 +16,10 @@ export default function AppLayout() {
             headerTitle: "Home",
             headerShown: true,
             headerRight: () => <ThemeSwitch />,
+            headerStyle: {
+              backgroundColor: colors.passive,
+            },
+            headerTintColor: colors.active,
           }}
         />
         <Stack.Screen
@@ -22,6 +28,10 @@ export default function AppLayout() {
             headerTitle: "Portfolio",
             headerShown: true,
             headerRight: () => <ThemeSwitch />,
+            headerStyle: {
+              backgroundColor: colors.passive,
+            },
+            headerTintColor: colors.active,
           }}
         />
       </Stack>

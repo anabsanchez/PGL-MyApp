@@ -1,6 +1,6 @@
 import { StyleSheet, Text, TouchableOpacity, View, Image } from "react-native";
 import React, { useContext } from "react";
-import { Link, Redirect } from "expo-router";
+import { Link } from "expo-router";
 import { ThemeContext } from "../contexts/ThemeContext";
 
 export default function Welcome() {
@@ -11,7 +11,7 @@ export default function Welcome() {
         source={require("../assets/welcome/rocket_light.png")}
         style={styles.image}
       />
-      <Text style={[styles.title, { color: colors.white }]}>
+      <Text style={[styles.title, { color: colors.passive }]}>
         Welcome aboard!
       </Text>
       <Link href="(tabs)/hobbies" asChild>
@@ -21,7 +21,7 @@ export default function Welcome() {
             { backgroundColor: colors.primary, opacity: 0 },
           ]}
         >
-          <Text style={[styles.buttonText, { color: colors.white }]}>
+          <Text style={[styles.buttonText, { color: colors.passive }]}>
             Go to Portfolio
           </Text>
         </TouchableOpacity>
