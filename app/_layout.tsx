@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet } from "react-native";
 import React from "react";
 import { Stack } from "expo-router";
 import ThemeProvider from "../providers/ThemeProvider";
@@ -16,7 +16,10 @@ export default function AppLayout() {
             headerRight: () => <ThemeSwitch />,
           }}
         />
-        <Stack.Screen name="(tabs)" options={{ headerShown: true }} />
+        <Stack.Screen
+          name="(tabs)"
+          options={{ headerTitle: "Portfolio", headerShown: true }}
+        />
       </Stack>
     </ThemeProvider>
   );

@@ -1,18 +1,27 @@
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet } from "react-native";
 import React, { useContext } from "react";
 import { Tabs } from "expo-router";
 import { ThemeContext } from "../../contexts/ThemeContext";
+import PortfolioHeader from "../../components/PortfolioHeader";
 
 export default function _layout() {
   const { colors } = useContext(ThemeContext);
   return (
     <Tabs>
-      <Tabs.Screen name="hobbies" />
+      <Tabs.Screen
+        name="hobbies"
+        options={{
+          headerShown: true,
+          headerTitle: () => <PortfolioHeader />,
+          headerStyle: { height: 120 },
+        }}
+      />
       <Tabs.Screen
         name="repository"
         options={{
-          headerTintColor: colors.secondary,
-          headerStyle: { backgroundColor: colors.primary },
+          headerShown: true,
+          headerTitle: () => <PortfolioHeader />,
+          headerStyle: { height: 120 },
         }}
       />
     </Tabs>
