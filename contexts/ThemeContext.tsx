@@ -17,7 +17,7 @@ export const ThemeContext = createContext<ThemeContextType>({
   colors: {
     primary: "#FF888A",
     secondary: "#FFFFFF",
-    active: "#FFFFFF",
-    passive: "#000000",
+    active: "#000000",
+    passive: "#FFFFFF",
   },
 });

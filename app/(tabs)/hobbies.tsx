@@ -35,8 +35,8 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   headerText: {
-    fontSize: 18, // Aumenta el tamaño de la fuente
-    fontWeight: "bold", // Hace que el texto sea negrita
-    marginBottom: 10, // Añade un poco de espacio debajo del texto
+    fontSize: 18,
+    fontWeight: "bold",
+    marginBottom: 10,
   },
 });
