@@ -18,7 +18,11 @@ export default function AppLayout() {
         />
         <Stack.Screen
           name="(tabs)"
-          options={{ headerTitle: "Portfolio", headerShown: true }}
+          options={{
+            headerTitle: "Portfolio",
+            headerShown: true,
+            headerRight: () => <ThemeSwitch />,
+          }}
         />
       </Stack>
     </ThemeProvider>

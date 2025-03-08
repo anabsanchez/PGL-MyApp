@@ -36,7 +36,7 @@ export default function Welcome() {
               { color: currentTheme.colors.secondary },
             ]}
           >
-            Go to Profile
+            Go to Portfolio
           </Text>
         </TouchableOpacity>
       </Link>
