@@ -4,38 +4,24 @@ import { Link, Redirect } from "expo-router";
 import { ThemeContext } from "../contexts/ThemeContext";
 
 export default function Welcome() {
-  const currentTheme = useContext(ThemeContext);
+  const { colors } = useContext(ThemeContext);
   return (
-    <View
-      style={[
-        styles.container,
-        { backgroundColor: currentTheme.colors.primary },
-      ]}
-    >
+    <View style={[styles.container, { backgroundColor: colors.primary }]}>
       <Image
-        source={
-          currentTheme.theme
-            ? require("../assets/welcome/rocket_light.png")
-            : require("../assets/welcome/rocket_dark.png")
-        }
+        source={require("../assets/welcome/rocket_light.png")}
         style={styles.image}
       />
-      <Text style={[styles.title, { color: currentTheme.colors.secondary }]}>
+      <Text style={[styles.title, { color: colors.white }]}>
         Welcome aboard!
       </Text>
       <Link href="(tabs)/hobbies" asChild>
         <TouchableOpacity
           style={[
             styles.button,
-            { backgroundColor: currentTheme.colors.secondary, opacity: 0 },
+            { backgroundColor: colors.primary, opacity: 0 },
           ]}
         >
-          <Text
-            style={[
-              styles.buttonText,
-              { color: currentTheme.colors.secondary },
-            ]}
-          >
+          <Text style={[styles.buttonText, { color: colors.white }]}>
             Go to Portfolio
           </Text>
         </TouchableOpacity>
