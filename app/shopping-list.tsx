@@ -16,7 +16,6 @@ export default function ShoppingList() {
   const [category, setCategory] = useState<string>("");
   const [units, setUnits] = useState<number>(0);
   const [price, setPrice] = useState<0>(0);
-  const [added, setAdded] = useState<boolean>(false);
 
   const data = [
     {
@@ -49,16 +48,16 @@ export default function ShoppingList() {
     setProductList(data);
   }, []);
 
-  const addNewItem = () => {
+  const createProduct = () => {
     setIsModalVisible(false);
 
     const newProductCard: ProductCardProps = {
-      id: uuid.v4() as string, // Asegúrate de que uuid.v4() sea un string
+      id: uuid.v4() as string,
       name,
       category,
       units,
       price,
-      added,
+      added: false,
     };
     const newList = [...productList, newProductCard];
     setProductList(newList);
@@ -67,6 +66,24 @@ export default function ShoppingList() {
   const deleteItem = (id: string) => {
     const newProductList = productList.filter((item) => item.id !== id);
     setProductList(newProductList);
+    updateTotal(newProductList);
+  };
+
+  const toggleAdded = (id: string) => {
+    const updatedList = productList.map((item) =>
+      item.id === id ? { ...item, added: !item.added } : item
+    );
+
+    setProductList(updatedList);
+    updateTotal(updatedList);
+  };
+
+  const updateTotal = (updatedList: ProductCardProps[]) => {
+    const newTotal = updatedList
+      .filter((item) => item.added)
+      .reduce((sum, item) => sum + item.price * item.units, 0);
+
+    setTotal(newTotal);
   };
 
   return (
@@ -96,20 +113,14 @@ export default function ShoppingList() {
               {item.name} ({item.units}) - {item.price.toFixed(2)}€/ud
             </Text>
             <View style={styles.productActions}>
-              <Pressable onPress={() => setAdded(!added)}>
-                {item.added ? (
-                  <Ionicons
-                    name="checkmark-circle"
-                    size={24}
-                    color={colors.secondary}
-                  />
-                ) : (
-                  <Ionicons
-                    name="checkmark-circle-outline"
-                    size={24}
-                    color={colors.secondary}
-                  />
-                )}
+              <Pressable onPress={() => toggleAdded(item.id)}>
+                <Ionicons
+                  name={
+                    item.added ? "checkmark-circle" : "checkmark-circle-outline"
+                  }
+                  size={24}
+                  color={colors.secondary}
+                />
               </Pressable>
 
               <Pressable onPress={() => deleteItem(item.id)}>
