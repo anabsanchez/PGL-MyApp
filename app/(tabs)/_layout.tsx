@@ -5,7 +5,7 @@ import { ThemeContext } from "../../contexts/ThemeContext";
 import PortfolioHeader from "../../components/PortfolioHeader";
 import Ionicons from "react-native-vector-icons/Ionicons";
 
-export default function _layout() {
+export default function PortfolioLayout() {
   const { colors } = useContext(ThemeContext);
 
   return (

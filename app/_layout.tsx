@@ -17,7 +17,7 @@ export default function AppLayout() {
             headerShown: true,
             headerRight: () => <ThemeSwitch />,
             headerStyle: {
-              backgroundColor: colors.passive,
+              backgroundColor: colors.secondary,
             },
             headerTintColor: colors.primary,
           }}
@@ -29,7 +29,7 @@ export default function AppLayout() {
             headerShown: true,
             headerRight: () => <ThemeSwitch />,
             headerStyle: {
-              backgroundColor: colors.passive,
+              backgroundColor: colors.secondary,
             },
             headerTintColor: colors.primary,
           }}
@@ -41,7 +41,7 @@ export default function AppLayout() {
             headerShown: true,
             headerRight: () => <ThemeSwitch />,
             headerStyle: {
-              backgroundColor: colors.passive,
+              backgroundColor: colors.secondary,
             },
             headerTintColor: colors.primary,
           }}

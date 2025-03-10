@@ -3,6 +3,7 @@ import React, { useContext } from "react";
 import { ThemeContext } from "../contexts/ThemeContext";
 
 type ProductCardProps = {
+  id: string;
   name: string;
   category: string;
   units: number;
@@ -10,13 +11,14 @@ type ProductCardProps = {
   added: boolean;
 };
 
-const ProductCard = ({
+export default function ProductCard({
+  id,
   name,
   category,
   units,
   price,
   added,
-}: ProductCardProps) => {
+}: ProductCardProps) {
   const { colors } = useContext(ThemeContext);
 
   return (
@@ -24,20 +26,20 @@ const ProductCard = ({
       style={[
         styles.container,
         {
-          borderColor: colors.passive,
+          borderColor: colors.secondary,
           opacity: 0.8,
-          backgroundColor: colors.passive,
+          backgroundColor: colors.primary,
         },
       ]}
     >
-      <Text style={[styles.description, { color: colors.primary }]}>
-        {name}
+      <Text style={[styles.description, { color: colors.secondary }]}>
+        {name} ({units}) - {price.toFixed(2)}€/ud
       </Text>
     </View>
   );
-};
+}
 
-export default ProductCard;
+export { ProductCardProps };
 
 const styles = StyleSheet.create({
   container: {
