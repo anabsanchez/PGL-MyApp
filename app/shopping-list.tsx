@@ -2,15 +2,22 @@ import { StyleSheet, View, Text, ScrollView, Pressable } from "react-native";
 import React, { useContext, useEffect, useState } from "react";
 import { ThemeContext } from "../contexts/ThemeContext";
 import Icon from "react-native-vector-icons/Ionicons";
-import ProductCard from "../components/ProductCard";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import uuid from "react-native-uuid";
-import { ProductCardProps } from "../components/ProductCard";
+
+type Product = {
+  id: string;
+  name: string;
+  category: string;
+  units: number;
+  price: number;
+  added: boolean;
+};
 
 export default function ShoppingList() {
   const { colors } = useContext(ThemeContext);
   const [isModalVisible, setIsModalVisible] = useState<boolean>(false);
-  const [productList, setProductList] = useState<ProductCardProps[]>([]);
+  const [productList, setProductList] = useState<Product[]>([]);
   const [total, setTotal] = useState(0);
   const [name, setName] = useState<string>("");
   const [category, setCategory] = useState<string>("");
@@ -51,7 +58,7 @@ export default function ShoppingList() {
   const createProduct = () => {
     setIsModalVisible(false);
 
-    const newProductCard: ProductCardProps = {
+    const newProductCard = {
       id: uuid.v4() as string,
       name,
       category,
@@ -78,7 +85,7 @@ export default function ShoppingList() {
     updateTotal(updatedList);
   };
 
-  const updateTotal = (updatedList: ProductCardProps[]) => {
+  const updateTotal = (updatedList: Product[]) => {
     const newTotal = updatedList
       .filter((item) => item.added)
       .reduce((sum, item) => sum + item.price * item.units, 0);
@@ -155,11 +162,6 @@ const styles = StyleSheet.create({
     shadowOffset: { width: 0, height: 3 },
     shadowOpacity: 0.2,
     shadowRadius: 4,
-  },
-  profileImage: {
-    width: 80,
-    height: 80,
-    borderRadius: 40,
   },
   headerText: {
     fontSize: 18,
