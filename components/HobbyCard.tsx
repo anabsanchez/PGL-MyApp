@@ -14,13 +14,13 @@ const HobbyCard = ({ description }: HobbyCardProps) => {
       style={[
         styles.container,
         {
-          borderColor: colors.secondary,
-          opacity: 0.7,
-          backgroundColor: colors.secondary,
+          borderColor: colors.passive,
+          opacity: 0.8,
+          backgroundColor: colors.passive,
         },
       ]}
     >
-      <Text style={[styles.description, { color: colors.passive }]}>
+      <Text style={[styles.description, { color: colors.primary }]}>
         {description}
       </Text>
     </View>
