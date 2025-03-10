@@ -19,7 +19,7 @@ export default function AppLayout() {
             headerStyle: {
               backgroundColor: colors.passive,
             },
-            headerTintColor: colors.active,
+            headerTintColor: colors.primary,
           }}
         />
         <Stack.Screen
@@ -31,7 +31,19 @@ export default function AppLayout() {
             headerStyle: {
               backgroundColor: colors.passive,
             },
-            headerTintColor: colors.active,
+            headerTintColor: colors.primary,
+          }}
+        />
+        <Stack.Screen
+          name="shopping-list"
+          options={{
+            headerTitle: "Shopping List",
+            headerShown: true,
+            headerRight: () => <ThemeSwitch />,
+            headerStyle: {
+              backgroundColor: colors.passive,
+            },
+            headerTintColor: colors.primary,
           }}
         />
       </Stack>
