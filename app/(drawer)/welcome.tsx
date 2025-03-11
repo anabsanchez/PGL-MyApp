@@ -1,21 +1,21 @@
 import { StyleSheet, Text, TouchableOpacity, View, Image } from "react-native";
 import React, { useContext } from "react";
 import { Link } from "expo-router";
-import { ThemeContext } from "../contexts/ThemeContext";
+import { ThemeContext } from "../../contexts/ThemeContext";
 
 export default function Welcome() {
   const { colors } = useContext(ThemeContext);
   return (
     <View style={[styles.container, { backgroundColor: colors.primary }]}>
       <Image
-        source={require("../assets/welcome/rocket_light.png")}
+        source={require("../../assets/welcome/rocket_light.png")}
         style={styles.image}
       />
       <Text style={[styles.title, { color: colors.secondary }]}>
         Welcome aboard!
       </Text>
       <View style={styles.buttonsContainer}>
-        <Link href="(tabs)/hobbies" asChild>
+        <Link href="portfolio/hobbies" asChild>
           <TouchableOpacity
             style={[
               styles.button,

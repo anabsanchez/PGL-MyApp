@@ -1,8 +1,8 @@
 import { FlatList, StyleSheet, Text, View } from "react-native";
 import React, { useContext } from "react";
-import HobbyCard from "../../components/HobbyCard";
-import hobbiesData from "../../data/hobbies-list";
-import { ThemeContext } from "../../contexts/ThemeContext";
+import HobbyCard from "../../../components/HobbyCard";
+import hobbiesData from "../../../data/hobbies-list";
+import { ThemeContext } from "../../../contexts/ThemeContext";
 
 export default function Hobbies() {
   const { colors } = useContext(ThemeContext);
