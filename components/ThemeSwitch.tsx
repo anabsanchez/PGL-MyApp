@@ -4,13 +4,13 @@ import { ThemeContext } from "../contexts/ThemeContext";
 import Icon from "react-native-vector-icons/Ionicons";
 
 export default function ThemeSwitch() {
-  const { switchTheme, theme } = useContext(ThemeContext);
+  const { switchTheme, theme, colors } = useContext(ThemeContext);
 
   const themeIcon = theme === "light" ? "moon" : "sunny";
 
   return (
     <TouchableOpacity onPress={switchTheme}>
-      <Icon name={themeIcon} size={25} color="black" />
+      <Icon name={themeIcon} size={25} color={colors.primary} />
     </TouchableOpacity>
   );
 }

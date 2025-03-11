@@ -16,7 +16,7 @@ export default function Hobbies() {
         },
       ]}
     >
-      <Text style={styles.headerText}>
+      <Text style={[styles.headerText, { color: colors.secondary }]}>
         Now, here's some of the stuff I enjoy:
       </Text>
       <FlatList

@@ -17,9 +17,9 @@ export default function AppLayout() {
             headerShown: true,
             headerRight: () => <ThemeSwitch />,
             headerStyle: {
-              backgroundColor: colors.passive,
+              backgroundColor: colors.secondary,
             },
-            headerTintColor: colors.active,
+            headerTintColor: colors.primary,
           }}
         />
         <Stack.Screen
@@ -29,9 +29,21 @@ export default function AppLayout() {
             headerShown: true,
             headerRight: () => <ThemeSwitch />,
             headerStyle: {
-              backgroundColor: colors.passive,
+              backgroundColor: colors.secondary,
             },
-            headerTintColor: colors.active,
+            headerTintColor: colors.primary,
+          }}
+        />
+        <Stack.Screen
+          name="shopping-list"
+          options={{
+            headerTitle: "Shopping List",
+            headerShown: true,
+            headerRight: () => <ThemeSwitch />,
+            headerStyle: {
+              backgroundColor: colors.secondary,
+            },
+            headerTintColor: colors.primary,
           }}
         />
       </Stack>

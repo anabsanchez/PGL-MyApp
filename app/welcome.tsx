@@ -11,21 +11,36 @@ export default function Welcome() {
         source={require("../assets/welcome/rocket_light.png")}
         style={styles.image}
       />
-      <Text style={[styles.title, { color: colors.passive }]}>
+      <Text style={[styles.title, { color: colors.secondary }]}>
         Welcome aboard!
       </Text>
-      <Link href="(tabs)/hobbies" asChild>
-        <TouchableOpacity
-          style={[
-            styles.button,
-            { backgroundColor: colors.primary, opacity: 0 },
-          ]}
-        >
-          <Text style={[styles.buttonText, { color: colors.passive }]}>
-            Go to Portfolio
-          </Text>
-        </TouchableOpacity>
-      </Link>
+      <View style={styles.buttonsContainer}>
+        <Link href="(tabs)/hobbies" asChild>
+          <TouchableOpacity
+            style={[
+              styles.button,
+              { backgroundColor: colors.primary, opacity: 0 },
+            ]}
+          >
+            <Text style={[styles.buttonText, { color: colors.secondary }]}>
+              Go to Portfolio
+            </Text>
+          </TouchableOpacity>
+        </Link>
+
+        <Link href="shopping-list" asChild>
+          <TouchableOpacity
+            style={[
+              styles.button,
+              { backgroundColor: colors.primary, opacity: 0 },
+            ]}
+          >
+            <Text style={[styles.buttonText, { color: colors.secondary }]}>
+              Go to Shopping List
+            </Text>
+          </TouchableOpacity>
+        </Link>
+      </View>
     </View>
   );
 }
@@ -36,13 +51,18 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     padding: 20,
-    gap: 200,
+    gap: 150,
     marginBottom: -200,
   },
   title: {
     fontSize: 40,
     fontWeight: "bold",
     marginBottom: 20,
+  },
+  buttonsContainer: {
+    flexDirection: "column",
+    alignItems: "center",
+    gap: 20,
   },
   button: {
     paddingVertical: 12,
