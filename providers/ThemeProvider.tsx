@@ -7,15 +7,15 @@ const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
   const themes = {
     light: {
       primary: "#FF888A",
-      secondary: "#7B4344",
-      active: "#000000",
-      passive: "#FFFFFF",
+      secondary: "#FFFFFF",
+      tertiary: "#000000",
+      fixed: "#FFFFFF",
     },
     dark: {
-      primary: "#7B4344",
-      secondary: "#FF888A",
-      active: "#FFFFFF",
-      passive: "#000000",
+      primary: "#844041",
+      secondary: "#000000",
+      tertiary: "#FFFFFF",
+      fixed: "#FF888A",
     },
   };
 

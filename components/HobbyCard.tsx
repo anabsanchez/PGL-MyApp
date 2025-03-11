@@ -14,9 +14,10 @@ const HobbyCard = ({ description }: HobbyCardProps) => {
       style={[
         styles.container,
         {
-          borderColor: colors.passive,
+          borderColor: colors.secondary,
+          borderWidth: 3,
           opacity: 0.8,
-          backgroundColor: colors.passive,
+          backgroundColor: colors.secondary,
         },
       ]}
     >

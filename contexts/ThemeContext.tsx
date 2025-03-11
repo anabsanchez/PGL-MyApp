@@ -6,8 +6,8 @@ type ThemeContextType = {
   colors: {
     primary: string;
     secondary: string;
-    active: string;
-    passive: string;
+    tertiary: string;
+    fixed: string;
   };
 };
 
@@ -17,7 +17,7 @@ export const ThemeContext = createContext<ThemeContextType>({
   colors: {
     primary: "#FF888A",
     secondary: "#FFFFFF",
-    active: "#000000",
-    passive: "#FFFFFF",
+    tertiary: "#000000",
+    fixed: "#FFFFFF",
   },
 });
