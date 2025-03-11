@@ -8,6 +8,7 @@ type ThemeContextType = {
     secondary: string;
     tertiary: string;
     fixed: string;
+    exception: string;
   };
 };
 
@@ -18,6 +19,7 @@ export const ThemeContext = createContext<ThemeContextType>({
     primary: "#FF888A",
     secondary: "#FFFFFF",
     tertiary: "#000000",
-    fixed: "#FFFFFF",
+    fixed: "#FF888A",
+    exception: "#FFFFFF",
   },
 });

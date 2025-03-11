@@ -10,7 +10,7 @@ export default function ThemeSwitch() {
 
   return (
     <TouchableOpacity onPress={switchTheme}>
-      <Icon name={themeIcon} size={25} color={colors.primary} />
+      <Icon name={themeIcon} size={25} color={colors.fixed} />
     </TouchableOpacity>
   );
 }
