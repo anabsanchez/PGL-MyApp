@@ -1,11 +1,18 @@
-import { StyleSheet, View, Text, ScrollView, Pressable } from "react-native";
+import {
+  StyleSheet,
+  View,
+  Text,
+  Image,
+  ScrollView,
+  Pressable,
+} from "react-native";
 import React, { useContext, useEffect, useState } from "react";
 import { ThemeContext } from "../contexts/ThemeContext";
 import Icon from "react-native-vector-icons/Ionicons";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import uuid from "react-native-uuid";
 import ProductModal from "../components/ProductModal";
-
+import categoryImages from "../assets/category-images";
 type Product = {
   id: string;
   name: string;
@@ -30,7 +37,7 @@ export default function ShoppingList() {
     {
       id: "1",
       name: "Yogurt",
-      category: "Lácteo",
+      category: "Dairy",
       units: 4,
       price: 1.3,
       added: false,
@@ -38,7 +45,7 @@ export default function ShoppingList() {
     {
       id: "2",
       name: "Leche",
-      category: "Lácteo",
+      category: "Dairy",
       units: 1,
       price: 1.75,
       added: false,
@@ -46,7 +53,7 @@ export default function ShoppingList() {
     {
       id: "3",
       name: "Croissant",
-      category: "Panadería",
+      category: "Bakery",
       units: 6,
       price: 3,
       added: false,
@@ -151,6 +158,10 @@ export default function ShoppingList() {
               { borderColor: colors.secondary },
             ]}
           >
+            <Image
+              source={categoryImages[item.category]}
+              style={styles.image}
+            />
             <Text
               style={[styles.text, { color: colors.secondary }]}
               onLongPress={() => openModalForEdit(item)}
@@ -218,11 +229,19 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     borderStyle: "solid",
-    borderWidth: 1,
+    borderWidth: 2,
     margin: 6,
     padding: 8,
     borderRadius: 10,
     width: 350,
+    overflow: "hidden",
+  },
+  image: {
+    position: "absolute",
+    opacity: 0.6,
+    borderRadius: 10,
+    width: 350,
+    height: 42,
   },
   text: {
     fontSize: 18,
