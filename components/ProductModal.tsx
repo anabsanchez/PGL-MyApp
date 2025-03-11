@@ -7,6 +7,7 @@ import {
   Pressable,
   StyleSheet,
 } from "react-native";
+import { Picker } from "@react-native-picker/picker";
 
 type Product = {
   id: string;
@@ -24,6 +25,16 @@ type ProductModalProps = {
   productToEdit?: Product | null;
 };
 
+const categories = [
+  "Dairy",
+  "Bakery",
+  "Fruits",
+  "Veggies",
+  "Fish",
+  "Meats",
+  "Drinks",
+];
+
 const ProductModal: React.FC<ProductModalProps> = ({
   visible,
   onClose,
@@ -31,7 +42,7 @@ const ProductModal: React.FC<ProductModalProps> = ({
   productToEdit,
 }) => {
   const [name, setName] = useState("");
-  const [category, setCategory] = useState("");
+  const [category, setCategory] = useState(categories[0]); // Valor inicial
   const [units, setUnits] = useState("");
   const [price, setPrice] = useState("");
 
@@ -43,15 +54,15 @@ const ProductModal: React.FC<ProductModalProps> = ({
       setPrice(productToEdit.price.toString());
     } else {
       setName("");
-      setCategory("");
+      setCategory(categories[0]);
       setUnits("");
       setPrice("");
     }
-  }, [productToEdit]);
+  }, [productToEdit, visible]);
 
   const handleSave = () => {
     if (!name || !category || !units || !price) {
-      alert("Todos los campos son obligatorios");
+      alert("All fields must be filled (rima xd)");
       return;
     }
 
@@ -81,12 +92,15 @@ const ProductModal: React.FC<ProductModalProps> = ({
             value={name}
             onChangeText={setName}
           />
-          <TextInput
-            style={styles.input}
-            placeholder="Category"
-            value={category}
-            onChangeText={setCategory}
-          />
+          <Picker
+            selectedValue={category}
+            onValueChange={(itemValue) => setCategory(itemValue)}
+            style={styles.picker}
+          >
+            {categories.map((cat) => (
+              <Picker.Item key={cat} label={cat} value={cat} />
+            ))}
+          </Picker>
           <TextInput
             style={styles.input}
             placeholder="Units"
@@ -144,6 +158,12 @@ const styles = StyleSheet.create({
     borderColor: "#ccc",
     borderRadius: 5,
     padding: 10,
+    marginBottom: 10,
+  },
+  picker: {
+    borderWidth: 1,
+    borderColor: "#ccc",
+    borderRadius: 5,
     marginBottom: 10,
   },
   buttonContainer: {
