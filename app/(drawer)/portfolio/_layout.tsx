@@ -1,8 +1,8 @@
 import { StyleSheet } from "react-native";
 import React, { useContext } from "react";
 import { Tabs } from "expo-router";
-import { ThemeContext } from "../../contexts/ThemeContext";
-import PortfolioHeader from "../../components/PortfolioHeader";
+import { ThemeContext } from "../../../contexts/ThemeContext";
+import PortfolioHeader from "../../../components/PortfolioHeader";
 import Ionicons from "react-native-vector-icons/Ionicons";
 
 export default function PortfolioLayout() {

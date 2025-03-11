@@ -7,12 +7,12 @@ import {
   Pressable,
 } from "react-native";
 import React, { useContext, useEffect, useState } from "react";
-import { ThemeContext } from "../contexts/ThemeContext";
+import { ThemeContext } from "../../contexts/ThemeContext";
 import Icon from "react-native-vector-icons/Ionicons";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import uuid from "react-native-uuid";
-import ProductModal from "../components/ProductModal";
-import categoryImages from "../assets/category-images";
+import ProductModal from "../../components/ProductModal";
+import categoryImages from "../../assets/category-images";
 type Product = {
   id: string;
   name: string;
@@ -44,10 +44,10 @@ export default function ShoppingList() {
     },
     {
       id: "2",
-      name: "Leche",
-      category: "Dairy",
+      name: "Salami",
+      category: "Meats",
       units: 1,
-      price: 1.75,
+      price: 3.75,
       added: false,
     },
     {
