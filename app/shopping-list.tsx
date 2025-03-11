@@ -110,12 +110,10 @@ export default function ShoppingList() {
   };
   const handleSaveProduct = (product: Product) => {
     if (productToEdit) {
-      // Editando producto existente
       setProductList((prevList) =>
         prevList.map((item) => (item.id === product.id ? product : item))
       );
     } else {
-      // Creando nuevo producto
       setProductList((prevList) => [...prevList, product]);
     }
   };
@@ -153,7 +151,10 @@ export default function ShoppingList() {
               { borderColor: colors.secondary },
             ]}
           >
-            <Text style={[styles.text, { color: colors.secondary }]}>
+            <Text
+              style={[styles.text, { color: colors.secondary }]}
+              onLongPress={() => openModalForEdit(item)}
+            >
               {item.name} ({item.units}) - {item.price.toFixed(2)}€/ud
             </Text>
             <View style={styles.productActions}>
