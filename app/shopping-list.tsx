@@ -92,6 +92,10 @@ export default function ShoppingList() {
 
     setTotal(newTotal);
   };
+  const clearList = () => {
+    setProductList([]);
+    setTotal(0);
+  };
 
   return (
     <View style={[styles.container, { backgroundColor: colors.primary }]}>
@@ -102,7 +106,12 @@ export default function ShoppingList() {
           Total: {total.toFixed(2)}€
         </Text>
         <Icon name="add" size={30} color={colors.primary} />
-        <Icon name="trash" size={24} color={colors.primary} />
+        <Icon
+          name="trash"
+          size={24}
+          color={colors.primary}
+          onPress={clearList}
+        />
       </View>
       <Text style={[styles.text, { color: colors.secondary }]}>
         {productList.length === 0 ? "Your shopping list is empty" : "Products:"}
