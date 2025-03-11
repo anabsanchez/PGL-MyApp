@@ -11,7 +11,7 @@ export default function Welcome() {
         source={require("../../assets/welcome/rocket_light.png")}
         style={styles.image}
       />
-      <Text style={[styles.title, { color: colors.secondary }]}>
+      <Text style={[styles.title, { color: colors.exception }]}>
         Welcome aboard!
       </Text>
       <View style={styles.buttonsContainer}>
@@ -22,7 +22,7 @@ export default function Welcome() {
               { backgroundColor: colors.primary, opacity: 0 },
             ]}
           >
-            <Text style={[styles.buttonText, { color: colors.secondary }]}>
+            <Text style={[styles.buttonText, { color: colors.exception }]}>
               Go to Portfolio
             </Text>
           </TouchableOpacity>
@@ -35,7 +35,7 @@ export default function Welcome() {
               { backgroundColor: colors.primary, opacity: 0 },
             ]}
           >
-            <Text style={[styles.buttonText, { color: colors.secondary }]}>
+            <Text style={[styles.buttonText, { color: colors.exception }]}>
               Go to Shopping List
             </Text>
           </TouchableOpacity>

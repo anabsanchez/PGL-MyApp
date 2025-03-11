@@ -9,13 +9,15 @@ const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
       primary: "#FF888A",
       secondary: "#FFFFFF",
       tertiary: "#000000",
-      fixed: "#FFFFFF",
+      fixed: "#FF888A",
+      exception: "#FFFFFF",
     },
     dark: {
       primary: "#844041",
       secondary: "#000000",
       tertiary: "#FFFFFF",
       fixed: "#FF888A",
+      exception: "#FF888A",
     },
   };
 

@@ -19,7 +19,7 @@ export default function DrawerLayout() {
             headerStyle: {
               backgroundColor: colors.secondary,
             },
-            headerTintColor: colors.primary,
+            headerTintColor: colors.fixed,
           }}
         />
         <Drawer.Screen
@@ -31,7 +31,7 @@ export default function DrawerLayout() {
             headerStyle: {
               backgroundColor: colors.secondary,
             },
-            headerTintColor: colors.primary,
+            headerTintColor: colors.fixed,
           }}
         />
         <Drawer.Screen
@@ -43,7 +43,7 @@ export default function DrawerLayout() {
             headerStyle: {
               backgroundColor: colors.secondary,
             },
-            headerTintColor: colors.primary,
+            headerTintColor: colors.fixed,
           }}
         />
       </Drawer>
