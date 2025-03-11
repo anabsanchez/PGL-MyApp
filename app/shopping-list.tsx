@@ -4,6 +4,7 @@ import { ThemeContext } from "../contexts/ThemeContext";
 import Icon from "react-native-vector-icons/Ionicons";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import uuid from "react-native-uuid";
+import ProductModal from "../components/ProductModal";
 
 type Product = {
   id: string;
@@ -17,6 +18,7 @@ type Product = {
 export default function ShoppingList() {
   const { colors } = useContext(ThemeContext);
   const [isModalVisible, setIsModalVisible] = useState<boolean>(false);
+  const [productToEdit, setProductToEdit] = useState<Product | null>(null);
   const [productList, setProductList] = useState<Product[]>([]);
   const [total, setTotal] = useState(0);
   const [name, setName] = useState<string>("");
@@ -97,6 +99,27 @@ export default function ShoppingList() {
     setTotal(0);
   };
 
+  const openModalForNewProduct = () => {
+    setProductToEdit(null);
+    setIsModalVisible(true);
+  };
+
+  const openModalForEdit = (product: Product) => {
+    setProductToEdit(product);
+    setIsModalVisible(true);
+  };
+  const handleSaveProduct = (product: Product) => {
+    if (productToEdit) {
+      // Editando producto existente
+      setProductList((prevList) =>
+        prevList.map((item) => (item.id === product.id ? product : item))
+      );
+    } else {
+      // Creando nuevo producto
+      setProductList((prevList) => [...prevList, product]);
+    }
+  };
+
   return (
     <View style={[styles.container, { backgroundColor: colors.primary }]}>
       <View
@@ -105,7 +128,12 @@ export default function ShoppingList() {
         <Text style={[styles.headerText, { color: colors.primary }]}>
           Total: {total.toFixed(2)}€
         </Text>
-        <Icon name="add" size={30} color={colors.primary} />
+        <Icon
+          name="add"
+          size={30}
+          color={colors.primary}
+          onPress={openModalForNewProduct}
+        />
         <Icon
           name="trash"
           size={24}
@@ -150,6 +178,12 @@ export default function ShoppingList() {
           </View>
         ))}
       </ScrollView>
+      <ProductModal
+        visible={isModalVisible}
+        onClose={() => setIsModalVisible(false)}
+        onSave={handleSaveProduct}
+        productToEdit={productToEdit}
+      />
     </View>
   );
 }
